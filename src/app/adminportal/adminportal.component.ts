@@ -11,7 +11,7 @@ import {NgbDateStruct} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AdminportalComponent implements OnInit {
 
-  private category : string;
+  category : string;
   private hasStudentDetails : boolean = true;
   model: NgbDateStruct;
   
@@ -49,6 +49,7 @@ export class AdminportalComponent implements OnInit {
         this.child_last_name = response.child_last_name;
         this.address = response.address;
         this.model =  {year:2011 , month : 10, day : 12};
+        
 
         
     });

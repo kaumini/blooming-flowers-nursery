@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
 
   ngOnInit() {
   }
+  model;
 
   register(details){
     let myDate = this.dateparser.format(details.dp);

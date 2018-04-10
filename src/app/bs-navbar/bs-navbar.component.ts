@@ -15,6 +15,10 @@ export class BsNavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  isLoggedIn(){
+    console.log(this.authService.isLoggedIn());
+    return this.authService.isLoggedIn();
+  }
   navigateToPortal(){
     if (this.authService.currentUser.type === 'admin'){
         this.router.navigate(['/portal/admin'],{queryParams : {category : 'dashboard'}});
@@ -28,5 +32,7 @@ export class BsNavbarComponent implements OnInit {
     this.authService.logout();
     this.router.navigate(['/']);
   }
+
+
 
 }

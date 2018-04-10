@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  private invalidLogin : boolean;
+  invalidLogin : boolean;
   constructor(
     private router: Router,
     private authservice: AuthService
