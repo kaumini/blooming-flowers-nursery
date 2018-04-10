@@ -53,18 +53,6 @@ export class AdminportalComponent implements OnInit {
 
         
     });
-    /* let registerDetails = { 
-      child_first_name : details.chdfn, 
-      child_last_name : details.chdln,
-      address : details.address,
-      city : details.city,
-      year : details.year,
-      birthday : details.birthday,
-      parent_first_name : details.parentfn,
-      parent_last_name : details.parentln,
-      phn_num : details.phnnum,
-      email : details.email
-      }; */
       if (data){
         console.log(data);
       }
