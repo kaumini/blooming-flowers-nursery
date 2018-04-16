@@ -124,38 +124,38 @@
               <div class="form-group">
                   <label class="control-label" for="inputContact4">City</label>
                   <div class="col-sm-10">
-                      <input class="form-control" id="inputContact4" type="text" value="">
+                      <input class="form-control" id="inputContact4" type="text" value="{{this.city}}">
                   </div>
               </div>
               <div class="form-group">
                   <label class="control-label" for="inputContact5">Year</label>
                   <div class="col-sm-10">
-                      <input class="form-control" id="inputContact5" type="text" value="">
+                      <input class="form-control" id="inputContact5" type="text" value="{{this.year}}">
                   </div>
               </div>
               
               <div class="form-group">
                   <label class="control-label" for="inputContact7">Parent's First Name</label>
                   <div class="col-sm-10">
-                      <input class="form-control" id="inputContact7" type="text" value="">
+                      <input class="form-control" id="inputContact7" type="text" value="{{this.parent_first_name}}">
                   </div>
               </div>
               <div class="form-group">
                   <label class="control-label" for="inputContact8">Parent's Last Name</label>
                   <div class="col-sm-10">
-                      <input class="form-control" id="inputContact8" type="text" placeholder="">
+                      <input class="form-control" id="inputContact8" type="text" value="{{this.parent_last_name}}">
                   </div>
               </div>
               <div class="form-group">
                 <label class="control-label" for="inputContact9">Phone Number</label>
                 <div class="col-sm-10">
-                    <input class="form-control" id="inputContact9" type="text" placeholder="">
+                    <input class="form-control" id="inputContact9" type="text" placeholder="" value="{{this.phn_num}}">
                 </div>
             </div>
             <div class="form-group">
               <label class="control-label" for="inputContact10">Email</label>
               <div class="col-sm-10">
-                  <input class="form-control" id="inputContact10" type="text" placeholder="">
+                  <input class="form-control" id="inputContact10" type="text" placeholder="" value="{{this.email}}">
               </div>
           </div>
               <div class="form-group">
@@ -167,31 +167,62 @@
           </div>
         </div>
       </div>
+      
       <div *ngIf="category==='careerapplications'" class="card">
         <div class="card-header">
-          Career Applications
+          Career Application Management
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Add a Career Option</h5>
+                  <form>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Example select</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect2">Example multiple select</label>
+                        <select multiple class="form-control" id="exampleFormControlSelect2">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Example textarea</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <form ref='uploadForm' 
+      id='uploadForm' 
+      action='http://localhost:3000/upload' 
+      method='post' 
+      encType="multipart/form-data">
+        <input type="file" name="sampleFile" />
+        <input type='submit' value='Upload!' />
+    </form>     
+                      </div>
+                    </form>
+                </div>
+              </div>
+          
         </div>
       </div>
 
       <div *ngIf="category==='teacherleaveapply'" class="card">
         <div class="card-header">
           Teacher Leave Applications
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-      <div *ngIf="category==='mainnoticeboard'" class="card">
-        <div class="card-header">
-          Main noticeboard
         </div>
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
