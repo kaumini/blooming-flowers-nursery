@@ -15,6 +15,8 @@ export class AdminportalComponent implements OnInit {
   category : string;
   private hasStudentDetails : boolean = true;
   model: NgbDateStruct;
+  fileToUpload: File = null;
+
   
   constructor(private route : ActivatedRoute, private dataService : DataService) { 
     route.queryParamMap.subscribe(params => {
@@ -44,6 +46,7 @@ export class AdminportalComponent implements OnInit {
     {name : 'New Admissions', key : 'newadmissions' },
     {name : 'Portal User Accounts', key : 'portaluseraccounts'}
   ];
+
   private student_data = {};
   getStudentData(studentId){
 
@@ -64,14 +67,20 @@ export class AdminportalComponent implements OnInit {
         const now = new Date(this.birthday);
         this.model = {year: now.getFullYear(), month: now.getMonth() + 1, day: now.getDate()};
         console.log(this.model);
-        //this.model =  {year : this.birthday.getFullYear, month : this.birthday.getMonth, day : this.birthday.getDay};
     });
       
   }
-  //
-  //
 
-  
-  
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+  }
+
+  uploadFileToActivity() {
+    this.dataService.postFile(this.fileToUpload).subscribe(data => {
+      // do something, if upload success
+      }, error => {
+        console.log(error);
+      });
+  }
 
 }

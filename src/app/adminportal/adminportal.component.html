@@ -1,10 +1,12 @@
 <div class="container pulldown">
   <div class="row">
     <div class="col-3">
-        <div class="list-group">
-          <a *ngFor='let menuitem of menu' class="list-group-item list-group-item-action" 
-           [class.active]='category===menuitem.key' routerLink='/portal/admin' [queryParams] = '{category : menuitem.key}'><h6>{{menuitem.name}}</h6></a>
-        </div>
+      <div class="list-group">
+        <a *ngFor='let menuitem of menu' class="list-group-item list-group-item-action" [class.active]='category===menuitem.key'
+          routerLink='/portal/admin' [queryParams]='{category : menuitem.key}'>
+          <h6>{{menuitem.name}}</h6>
+        </a>
+      </div>
     </div>
     <div class="col">
       <div *ngIf="category==='dashboard'" class="card">
@@ -17,7 +19,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Admins</h4>
-                  <div class="card-text text-center text-primary"><h2>5</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>5</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -25,7 +29,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Teachers</h4>
-                  <div class="card-text text-center text-primary"><h2>12</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>12</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -36,7 +42,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Registered Students</h4>
-                  <div class="card-text text-center text-primary"><h2>124</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>124</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -44,7 +52,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">New Applications</h4>
-                  <div class="card-text text-center text-primary"><h2>221</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>221</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -55,7 +65,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Leave Applications</h4>
-                  <div class="card-text text-center text-primary"><h2>3</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>3</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -63,7 +75,9 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Noticeboard Posts</h4>
-                  <div class="card-text text-center text-primary"><h2>221</h2></div>
+                  <div class="card-text text-center text-primary">
+                    <h2>221</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -90,133 +104,108 @@
           <div *ngIf='this.hasStudentDetails' class="pulldownbit">
             <form class="form-horizontal ng-pristine ng-valid" #fm="ngForm" (ngSubmit)="register(fm.value)">
               <div class="form-group">
-                  <label class="control-label" for="inputContact1">Child's First Name</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact1" type="text" placeholder="" value="{{this.child_first_name}}">
-                  </div>
+                <label class="control-label" for="inputContact1">Child's First Name</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact1" type="text" placeholder="" value="{{this.child_first_name}}">
+                </div>
               </div>
               <div class="form-group">
-                  <label class='control-label' for="inputContact2">Child's Last Name</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact2" type="text" value="{{this.child_last_name}}">
-                  </div>
+                <label class='control-label' for="inputContact2">Child's Last Name</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact2" type="text" value="{{this.child_last_name}}">
+                </div>
               </div>
               <div class="form-group">
                 <label class="control-label" for="inputContact6">Address</label>
                 <div class="col-sm-10">
-                    <textarea class="form-control" id="inputContact6" row="4">{{this.address}}</textarea>
+                  <textarea class="form-control" id="inputContact6" row="4">{{this.address}}</textarea>
                 </div>
-            </div>
+              </div>
               <div class="form-group">
-                  <label class="control-label" for="inputContact3">Birthday</label>
-                  <div class="col-sm-10">
-                    <div class="input-group">
-                      <input class="form-control" placeholder="yyyy-mm-dd"
-                             name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
-                      <div class="input-group-append">
-                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
-                          <img src="/assets/date.png" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-                        </button>
-                      </div>
+                <label class="control-label" for="inputContact3">Birthday</label>
+                <div class="col-sm-10">
+                  <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                        <img src="/assets/date.png" style="width: 1.2rem; height: 1rem; cursor: pointer;" />
+                      </button>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="inputContact4">City</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact4" type="text" value="{{this.city}}">
-                  </div>
+                <label class="control-label" for="inputContact4">City</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact4" type="text" value="{{this.city}}">
+                </div>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="inputContact5">Year</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact5" type="text" value="{{this.year}}">
-                  </div>
+                <label class="control-label" for="inputContact5">Year</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact5" type="text" value="{{this.year}}">
+                </div>
               </div>
-              
+
               <div class="form-group">
-                  <label class="control-label" for="inputContact7">Parent's First Name</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact7" type="text" value="{{this.parent_first_name}}">
-                  </div>
+                <label class="control-label" for="inputContact7">Parent's First Name</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact7" type="text" value="{{this.parent_first_name}}">
+                </div>
               </div>
               <div class="form-group">
-                  <label class="control-label" for="inputContact8">Parent's Last Name</label>
-                  <div class="col-sm-10">
-                      <input class="form-control" id="inputContact8" type="text" value="{{this.parent_last_name}}">
-                  </div>
+                <label class="control-label" for="inputContact8">Parent's Last Name</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact8" type="text" value="{{this.parent_last_name}}">
+                </div>
               </div>
               <div class="form-group">
                 <label class="control-label" for="inputContact9">Phone Number</label>
                 <div class="col-sm-10">
-                    <input class="form-control" id="inputContact9" type="text" placeholder="" value="{{this.phn_num}}">
+                  <input class="form-control" id="inputContact9" type="text" placeholder="" value="{{this.phn_num}}">
                 </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label" for="inputContact10">Email</label>
-              <div class="col-sm-10">
-                  <input class="form-control" id="inputContact10" type="text" placeholder="" value="{{this.email}}">
               </div>
-          </div>
               <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
-                      <button class="btn btn-info" type="submit">Update</button>
-                  </div>
+                <label class="control-label" for="inputContact10">Email</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputContact10" type="text" placeholder="" value="{{this.email}}">
+                </div>
               </div>
-          </form>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button class="btn btn-info" type="submit">Update</button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      
+
       <div *ngIf="category==='careerapplications'" class="card">
         <div class="card-header">
           Career Application Management
         </div>
         <div class="card-body">
-            <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title">Add a Career Option</h5>
-                  <form>
-                      <div class="form-group">
-                        <label for="exampleFormControlInput1">Email address</label>
-                        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect1">Example select</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlSelect2">Example multiple select</label>
-                        <select multiple class="form-control" id="exampleFormControlSelect2">
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                          <option>4</option>
-                          <option>5</option>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        <form ref='uploadForm' 
-      id='uploadForm' 
-      action='http://localhost:3000/upload' 
-      method='post' 
-      encType="multipart/form-data">
-        <input type="file" name="sampleFile" />
-        <input type='submit' value='Upload!' />
-    </form>     
-                      </div>
-                    </form>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add a Career Option</h5>
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Career Title</label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="title goes here">
                 </div>
-              </div>
-          
+                <div class="form-group">
+                  <label for="exampleFormControlTextarea1">Description</label>
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="file">Choose File</label>
+                  <input type="file" id="file" (change)="handleFileInput($event.target.files)">
+                </div>
+              </form>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -254,5 +243,5 @@
       </div>
 
     </div>
-  </div>  
+  </div>
 </div>
