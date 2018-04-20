@@ -24,7 +24,7 @@ export class BsNavbarComponent implements OnInit {
         this.router.navigate(['/portal/admin'],{queryParams : {category : 'dashboard'}});
     }
     else if (this.authService.currentUser.type === 'parent'){
-      this.router.navigate(['/portal/parent']);
+      this.router.navigate(['/portal/parent'],{queryParams : {category : 'noticeboard'}});
     }
   }
 

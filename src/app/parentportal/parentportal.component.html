@@ -1,3 +1,61 @@
-<p>
-  parentportal works!
-</p>
+<div class="container pulldown">
+  <div class="row">
+    <div class="col-3">
+      <div class="list-group">
+        <a *ngFor='let menuitem of menu' class="list-group-item list-group-item-action" [class.active]='category===menuitem.key'
+          routerLink='/portal/parent' [queryParams]='{category : menuitem.key}'>
+          <h6>{{menuitem.name}}</h6>
+        </a>
+      </div>
+    </div>
+    <div class="col">
+      <div *ngIf="category==='noticeboard'" class="card">
+        <div class="card-header">
+          Noticeboard
+        </div>
+        <div class="card-body">
+          <div *ngFor="let notice of notices" class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{notice.title}}</h5>
+              <p class="card-text">{{notice.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="category==='inquiries'" class="card">
+        <div class="card-header">
+          Inquiries
+        </div>
+        <div class="card-body">
+          <div *ngIf="success" class="alert alert-success" role="alert">
+            Your Inquiry has been submitted.
+          </div>
+          <form #f="ngForm" (ngSubmit)="newInquiry(f.value)">
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="email" ngModel name="subject" class="form-control" id="subject" placeholder="Enter Subject">
+            </div>
+            <div class="form-group">
+              <label for="inquiry">Inquiry</label>
+              <textarea ngModel name="inquiry" class="form-control" id="inquiry" rows="3" placeholder="Enter Your Inquiry"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div *ngIf="category==='attendence'" class="card">
+        <div class="card-header">
+          Attendence
+        </div>
+        <div class="card-body">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

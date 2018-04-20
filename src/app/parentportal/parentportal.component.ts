@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-parentportal',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentportalComponent implements OnInit {
 
-  constructor() { }
+  category : string;
+  notices = [];
+  success = false;
+
+  constructor(private route : ActivatedRoute, private dataService : DataService) { 
+    route.queryParamMap.subscribe(params => {
+      this.category = params.get('category');
+    });
+    this.dataService.getNotices().subscribe(response => {
+      this.notices = response;
+    });
+  }
 
   ngOnInit() {
   }
 
+  menu = [
+    {name : 'Noticeboard', key: 'noticeboard'},
+    {name : 'Inquiries', key: 'inquiries'},
+    {name : 'Attendence', key: 'attendence'}
+  ];
+
+  newInquiry(Inquiry){
+    let response = this.dataService.newInquiry(Inquiry);
+    if (response){
+      this.success = true;
+    }
+  }
 }
