@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth-guard.service';
 import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -40,8 +41,8 @@ import { ParentportalComponent } from './parentportal/parentportal.component';
       { path : 'about', component : AboutComponent},
       { path : 'apply', component : RegistrationComponent},
       { path : 'careers', component : CareersComponent},
-      { path : 'portal/admin', component : AdminportalComponent },
-      { path : 'portal/parent', component : ParentportalComponent}
+      { path : 'portal/admin', component : AdminportalComponent , canActivate : [AuthGuard]},
+      { path : 'portal/parent', component : ParentportalComponent , canActivate : [AuthGuard]}
     ]),
     NgbModule.forRoot(),
     HttpModule,
@@ -49,7 +50,8 @@ import { ParentportalComponent } from './parentportal/parentportal.component';
   ],
   providers: [
     AuthService,
-    DataService
+    DataService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

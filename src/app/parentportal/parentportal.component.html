@@ -31,14 +31,14 @@
           <div *ngIf="success" class="alert alert-success" role="alert">
             Your Inquiry has been submitted.
           </div>
-          <form #f="ngForm" (ngSubmit)="newInquiry(f.value)">
+          <form #f="ngForm" (ngSubmit)="newInquiry(f.value); f.reset()">
             <div class="form-group">
               <label for="subject">Subject</label>
-              <input type="email" ngModel name="subject" class="form-control" id="subject" placeholder="Enter Subject">
+              <input type="email" ngModel name="subject" class="form-control" id="subject" placeholder="Enter Subject" value="{{this.subject}}">
             </div>
             <div class="form-group">
               <label for="inquiry">Inquiry</label>
-              <textarea ngModel name="inquiry" class="form-control" id="inquiry" rows="3" placeholder="Enter Your Inquiry"></textarea>
+              <textarea ngModel name="inquiry" class="form-control" id="inquiry" rows="3" placeholder="Enter Your Inquiry" value="this.inquiry"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">
               Submit
