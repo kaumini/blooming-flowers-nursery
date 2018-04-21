@@ -1,3 +1,5 @@
+import { ParentAuthGuard } from './parent-auth-guard.service';
+import { AdminAuthGuard } from './admin-auth-guard.service';
 import { AuthGuard } from './auth-guard.service';
 import { DataService } from './data.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -18,6 +20,7 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { CareersComponent } from './careers/careers.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { ParentportalComponent } from './parentportal/parentportal.component';
+import { AccessdeniedComponent } from './accessdenied/accessdenied.component';
 
 
 @NgModule({
@@ -31,7 +34,8 @@ import { ParentportalComponent } from './parentportal/parentportal.component';
     CarouselComponent,
     CareersComponent,
     AdminportalComponent,
-    ParentportalComponent
+    ParentportalComponent,
+    AccessdeniedComponent
   ],
   imports: [
     BrowserModule,
@@ -41,8 +45,9 @@ import { ParentportalComponent } from './parentportal/parentportal.component';
       { path : 'about', component : AboutComponent},
       { path : 'apply', component : RegistrationComponent},
       { path : 'careers', component : CareersComponent},
-      { path : 'portal/admin', component : AdminportalComponent , canActivate : [AuthGuard]},
-      { path : 'portal/parent', component : ParentportalComponent , canActivate : [AuthGuard]}
+      { path : 'portal/admin', component : AdminportalComponent , canActivate : [AuthGuard, AdminAuthGuard]},
+      { path : 'portal/parent', component : ParentportalComponent , canActivate : [AuthGuard, ParentAuthGuard]},
+      { path : 'accessdenied', component : AccessdeniedComponent}
     ]),
     NgbModule.forRoot(),
     HttpModule,
@@ -51,7 +56,9 @@ import { ParentportalComponent } from './parentportal/parentportal.component';
   providers: [
     AuthService,
     DataService,
-    AuthGuard
+    AuthGuard,
+    AdminAuthGuard,
+    ParentAuthGuard
   ],
   bootstrap: [AppComponent]
 })
